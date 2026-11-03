@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#070b15">
+<title>WEB INDIA | Premium Digital Experiences</title>
+<meta name="description" content="WEB INDIA creates premium websites, mobile applications, logo designs and digital experiences for businesses.">
+<style>
+:root{--gold:#e8c477;--gold2:#fff0c5;--bg:#070b15;--panel:#101a2b;--muted:#aab5c7;--line:#2b3b55;--white:#fff}
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden}
+a{text-decoration:none;color:inherit}button{font:inherit;cursor:pointer}
+.container{width:min(1200px,90%);margin:auto}
+section{padding:88px 0;position:relative}
+.label{color:var(--gold);font-size:11px;letter-spacing:4px;font-weight:800}
+.title{font-size:clamp(30px,4vw,48px);line-height:1.15;margin:15px 0}
+.subtitle{color:var(--muted);line-height:1.8;max-width:720px}
+.center{text-align:center}.center .subtitle{margin:0 auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 21px;border-radius:7px;background:linear-gradient(135deg,#fff0c5,#e4bd70,#a97935);color:#10131a;font-weight:800;border:1px solid #f5d99b;transition:.3s}
+.btn:hover{transform:translateY(-4px);box-shadow:0 12px 30px #d6ad6050}
+.btn-outline{background:transparent;color:var(--gold);border:1px solid var(--gold)}
+header{position:sticky;top:0;z-index:1000;background:#070c18ed;backdrop-filter:blur(16px);border-bottom:1px solid #28364d}
+nav{width:min(1200px,92%);margin:auto;display:flex;align-items:center;justify-content:space-between;padding:15px 0}
+.logo{font-size:25px;font-weight:900;letter-spacing:1.5px}.logo span{color:var(--gold)}
+.navlinks{display:flex;gap:20px;font-size:13px;color:#d7dfeb}.navlinks a:hover{color:var(--gold)}
+.nav-actions{display:flex;gap:9px;align-items:center}.nav-actions .btn{padding:10px 13px;font-size:12px}
+.menu{display:none;background:none;color:white;border:0;font-size:27px}
+.hero{min-height:680px;display:flex;align-items:center;overflow:hidden;background:radial-gradient(ellipse at 78% 48%,#29466c70,transparent 45%),radial-gradient(ellipse at 5% 90%,#c99b431b,transparent 40%)}
+.hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(#ffffff09 1px,transparent 1px),linear-gradient(90deg,#ffffff09 1px,transparent 1px);background-size:52px 52px;mask-image:linear-gradient(transparent,#000,transparent);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center;position:relative;z-index:2}
+.hero h1{font-size:clamp(45px,6vw,76px);line-height:1.04;letter-spacing:-2px;margin:20px 0}
+.gold-text{background:linear-gradient(90deg,#fff1c8,#d6ad60,#fff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:590px;color:var(--muted);line-height:1.9;margin-bottom:27px}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+.hero-art{height:480px;display:grid;place-items:center;perspective:1100px;position:relative}
+.art-glow{position:absolute;width:340px;height:340px;border-radius:50%;background:#d6ad6020;filter:blur(60px)}
+.orbit-stage{width:350px;height:350px;position:relative;transform-style:preserve-3d;animation:stageFloat 8s ease-in-out infinite}
+.core{position:absolute;left:50%;top:50%;width:94px;height:94px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff,#eacb84 18%,#95662d 55%,#17243a 78%);box-shadow:0 0 35px #e5bd70aa,0 0 100px #d6ad6040;z-index:5;animation:pulse 4s ease-in-out infinite}
+.ring{position:absolute;left:50%;top:50%;border:2px solid #e8c477aa;border-radius:50%;transform-style:preserve-3d}
+.r1{width:300px;height:110px;margin:-55px 0 0 -150px;transform:rotateX(68deg);animation:r1 8s linear infinite}
+.r2{width:290px;height:130px;margin:-65px 0 0 -145px;border-color:#91bfffaa;transform:rotateX(65deg) rotateY(65deg);animation:r2 10s linear infinite}
+.r3{width:260px;height:160px;margin:-80px 0 0 -130px;border-color:#fff0c5aa;transform:rotateY(70deg);animation:r3 12s linear infinite}
+.r4{width:240px;height:240px;margin:-120px 0 0 -120px;border-color:#d6ad6077;transform:rotateX(70deg);animation:r4 16s linear infinite}
+.cube-frame{position:absolute;left:50%;top:50%;width:205px;height:205px;margin:-102px;border:1px solid #e8c47788;transform-style:preserve-3d;animation:cube 13s linear infinite}
+.cube-frame:before,.cube-frame:after{content:"";position:absolute;inset:18px;border:1px solid #91bfff99;transform:rotate(45deg)}
+.cube-frame:after{inset:38px;border-color:#e8c477;transform:rotate(22deg)}
+.dot{position:absolute;width:13px;height:13px;border-radius:50%;background:#fff0c5;box-shadow:0 0 18px #e8c477;animation:dotMove 4s ease-in-out infinite}
+.dot.d1{top:7%;left:48%}.dot.d2{bottom:9%;left:12%;animation-delay:-1s}.dot.d3{right:5%;top:48%;animation-delay:-2s}
+@keyframes stageFloat{50%{transform:translateY(-15px) rotateX(5deg)}}
+@keyframes pulse{50%{scale:1.12}}
+@keyframes r1{to{transform:rotateX(68deg) rotateZ(360deg)}}
+@keyframes r2{to{transform:rotateX(65deg) rotateY(65deg) rotateZ(360deg)}}
+@keyframes r3{to{transform:rotateY(70deg) rotateZ(360deg)}}
+@keyframes r4{to{transform:rotateX(70deg) rotateZ(-360deg)}}
+@keyframes cube{to{transform:rotateX(360deg) rotateY(360deg)}}
+@keyframes dotMove{50%{transform:translateY(-20px) scale(1.35)}}
+/* five additional visual illusion panels */
+.illusion-section{background:radial-gradient(circle at 50% 40%,#1a2c48 0,#080e1a 62%)}
+.illusion-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:15px;margin-top:38px}
+.illusion-card{height:190px;border:1px solid #34445e;border-radius:14px;background:linear-gradient(145deg,#14243a,#090f1b);display:grid;place-items:center;overflow:hidden;position:relative}
+.illusion-card h3{position:absolute;bottom:12px;left:12px;font-size:12px;color:#fff;z-index:5;text-shadow:0 2px 8px #000}
+.illusion-card .visual{width:125px;height:125px;position:relative;display:grid;place-items:center}
+.ball-orbit{border:1px dashed #e8c477;border-radius:50%;animation:spin 6s linear infinite}
+.ball-orbit:before,.ball-orbit:after{content:"";position:absolute;width:19px;height:19px;border-radius:50%;background:radial-gradient(circle at 30% 25%,white,#e8c477 45%,#8a5c22);box-shadow:0 0 16px #e8c477;top:50%;left:-9px}
+.ball-orbit:after{left:auto;right:-9px;background:radial-gradient(circle at 30% 25%,white,#8ebeff 45%,#315c9a);animation:counter 6s linear infinite}
+.ball-orbit.two{position:absolute;width:90px;height:90px;border-color:#8ebeff;animation:counter 4s linear infinite}
+.spiral{border:5px solid transparent;border-top-color:#e8c477;border-right-color:#8ebeff;border-bottom-color:#e8c477;border-radius:50%;animation:spin 2.8s linear infinite;box-shadow:0 0 18px #e8c47755}
+.spiral:before,.spiral:after{content:"";position:absolute;inset:13px;border:4px solid transparent;border-left-color:#fff0c5;border-bottom-color:#8ebeff;border-radius:50%;animation:counter 2s linear infinite}
+.spiral:after{inset:29px;border-width:3px;border-right-color:#e8c477}
+.tunnel{border-radius:50%;border:3px solid #e8c477;box-shadow:inset 0 0 18px #8ebeff,0 0 15px #e8c477;animation:tunnel 3s ease-in-out infinite}
+.tunnel:before,.tunnel:after{content:"";position:absolute;inset:15px;border:3px solid #8ebeff;border-radius:50%;animation:tunnel 3s ease-in-out infinite reverse}
+.tunnel:after{inset:31px;border-color:#fff0c5}
+.knot{width:95px;height:95px;border:7px double #e8c477;border-radius:22%;transform:rotate(45deg);animation:knot 7s linear infinite;box-shadow:0 0 20px #e8c47755}
+.knot:before,.knot:after{content:"";position:absolute;inset:9px;border:4px solid #8ebeff;border-radius:50%;transform:rotate(45deg)}
+.knot:after{inset:22px;border-color:#fff0c5}
+.moire{background:repeating-radial-gradient(circle at center,transparent 0 5px,#e8c477 6px 7px,transparent 8px 12px);border-radius:50%;animation:moire 12s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}@keyframes counter{to{transform:rotate(-360deg)}}
+@keyframes tunnel{50%{transform:scale(.62) rotate(90deg);opacity:.55}}
+@keyframes knot{to{transform:rotate(405deg)}}@keyframes moire{to{transform:rotate(360deg) scale(.8)}}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:-20px;position:relative;z-index:4}
+.stat{padding:24px 12px;text-align:center;border:1px solid var(--line);border-radius:13px;background:linear-gradient(145deg,#17243a,#0c1423)}
+.stat strong{display:block;color:var(--gold);font-size:29px;margin-bottom:8px}.stat span{font-size:13px;color:var(--muted)}
+.panel-section{background:#080e1a}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:38px}
+.card{border:1px solid var(--line);border-radius:15px;padding:25px;background:linear-gradient(145deg,#17243a,#0c1423);transition:.3s;overflow:hidden}
+.card:hover{transform:translateY(-7px);border-color:var(--gold);box-shadow:0 15px 35px #0005}
+.card .emoji{font-size:31px;margin-bottom:15px}.card h3{font-size:19px;margin-bottom:10px}.card p{font-size:13px;color:var(--muted);line-height:1.8}
+.card a.text-link{display:inline-block;color:var(--gold);font-weight:bold;font-size:13px;margin-top:16px}
+.experience-intro{margin-bottom:15px}
+.portfolio-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:38px}
+.project-card{padding:0;overflow:hidden;border:1px solid #35445e;border-radius:16px;background:#101a2b;transition:.3s}
+.project-card:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 18px 40px #0006}
+.preview{height:255px;position:relative;overflow:hidden;background:#18243a}
+.preview iframe{width:1280px;height:800px;border:0;transform:scale(.36);transform-origin:top left;pointer-events:none;background:white}
+.preview .preview-shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 65%,#070b15aa);pointer-events:none}
+.preview-label{position:absolute;top:12px;left:12px;padding:7px 10px;background:#070b15d9;border:1px solid #ffffff35;border-radius:30px;font-size:10px;color:var(--gold2)}
+.project-info{padding:20px}.project-info h3{font-size:20px;margin-bottom:8px}.project-info p{color:var(--muted);font-size:13px;line-height:1.7;min-height:42px}
+.project-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.project-actions .btn{padding:10px 15px;font-size:12px}
+.categories{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
+.category-card{position:relative;min-height:220px;border-radius:15px;overflow:hidden;border:1px solid #394a63;background:#152238}
+.category-card img{position:absolute;width:100%;height:100%;object-fit:cover;inset:0;transition:.6s}
+.category-card:hover img{transform:scale(1.08)}
+.category-card:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#050913f2 0%,#05091320 80%)}
+.category-content{position:absolute;z-index:2;bottom:17px;left:18px;right:18px}
+.category-content h3{font-size:19px;margin-bottom:6px}.category-content p{font-size:12px;color:#d2d9e4;margin-bottom:12px}
+.category-content a{font-size:12px;font-weight:bold;color:#111;background:var(--gold2);padding:9px 12px;border-radius:5px;display:inline-block}
+.tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:25px}
+.tag{padding:10px 14px;background:#142139;border:1px solid #354766;border-radius:7px;color:#d9dfeb;font-size:12px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:17px;margin-top:38px}
+.step{padding:18px;border-left:2px solid var(--gold);background:#111b2b}.step b{font-size:28px;color:var(--gold)}.step h3{margin:12px 0 8px}.step p{font-size:13px;color:var(--muted);line-height:1.7}
+.price{font-size:34px;color:var(--gold);font-weight:bold;margin:17px 0}.price small{font-size:12px;color:var(--muted)}
+.card ul{list-style:none;margin:15px 0}.card li{padding:9px 0;border-bottom:1px solid #28364a;font-size:13px;color:#d1d9e5}
+.popular{border-color:var(--gold)}
+.cta{padding:65px 22px;border-radius:20px;text-align:center;border:1px solid #394963;background:radial-gradient(circle at 50% 0%,#d6ad6022,transparent 60%),linear-gradient(120deg,#182a46,#101725)}
+.cta h2{font-size:clamp(28px,4vw,42px);margin:16px 0}
+.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:35px;align-items:start;margin-top:35px}
+.contact-box{padding:25px;background:#111b2c;border:1px solid var(--line);border-radius:15px}
+.contact-item{padding:14px 0;border-bottom:1px solid #29374d}.contact-item:last-child{border:0}.contact-item small{display:block;color:var(--muted);margin-bottom:6px}.contact-item a{color:var(--gold);font-weight:bold}
+.contact-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+form{display:grid;gap:13px}
+input,select,textarea{width:100%;padding:14px;background:#111c2d;border:1px solid #34425b;border-radius:7px;color:white;font-size:14px;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--gold)}select option{background:#111c2d}textarea{min-height:115px;resize:vertical}
+details{background:var(--panel);border:1px solid var(--line);padding:18px;border-radius:9px;margin:11px 0}
+summary{cursor:pointer;font-weight:bold}details p{color:var(--muted);margin-top:12px;line-height:1.7;font-size:14px}
+footer{padding:55px 0 25px;background:#040812;border-top:1px solid #263047}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px}
+footer h3{color:var(--gold);margin-bottom:13px;font-size:15px}footer p,footer a{font-size:13px;color:var(--muted);line-height:2}footer a:hover{color:var(--gold)}
+.copyright{text-align:center;border-top:1px solid #253047;padding-top:22px;margin-top:35px;color:#778397;font-size:12px}
+.float-contact{position:fixed;right:16px;bottom:18px;z-index:900;display:flex;flex-direction:column;gap:9px}
+.float-contact a{width:49px;height:49px;border-radius:50%;display:grid;place-items:center;font-size:21px;color:#07120b;background:#32d66d;box-shadow:0 6px 22px #0008}
+.float-contact a.call{background:var(--gold);color:#17120a}
+.reveal{opacity:0;transform:translateY(25px);transition:.7s}.reveal.visible{opacity:1;transform:none}
+@media(max-width:900px){.navlinks{display:none;position:absolute;top:64px;left:0;right:0;background:#0b1424;padding:22px;flex-direction:column;border-bottom:1px solid var(--line)}.navlinks.show{display:flex}.menu{display:block}.nav-actions .btn{display:none}.hero-grid{grid-template-columns:1fr;text-align:center}.hero p{margin:0 auto 25px}.hero-buttons{justify-content:center}.hero-art{height:390px}.grid{grid-template-columns:repeat(2,1fr)}.illusion-grid{grid-template-columns:repeat(3,1fr)}.categories{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(2,1fr)}.contact-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:2fr 1fr 1fr}}
+@media(max-width:600px){section{padding:65px 0}.hero{min-height:auto;padding:65px 0 35px}.hero h1{font-size:43px}.hero-art{height:310px;transform:scale(.88)}.stats{grid-template-columns:repeat(2,1fr);width:90%}.grid,.portfolio-grid,.categories{grid-template-columns:1fr}.illusion-grid{grid-template-columns:repeat(2,1fr)}.illusion-card{height:165px}.steps{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.preview{height:225px}.preview iframe{transform:scale(.29)}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header><nav>
+<a class="logo" href="#home">WEB <span>INDIA.</span></a>
+<div class="navlinks" id="navlinks">
+<a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#portfolio">Portfolio</a><a href="#categories">Industries</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a>
+</div>
+<div class="nav-actions"><a class="btn btn-outline" href="tel:+919415097814">☎ Call</a><a class="btn" href="https://wa.me/919415097814" target="_blank" rel="noopener">WhatsApp</a></div>
+<button class="menu" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+</nav></header>
+
+<section class="hero" id="home"><div class="container hero-grid">
+<div>
+<span class="label">YOUR DIGITAL GROWTH PARTNER</span>
+<h1>Build Your<br><span class="gold-text">Digital Empire.</span></h1>
+<p>Premium websites, mobile app concepts, logo design and creative digital experiences for businesses that want to stand out. Let's turn your idea into an engaging online experience.</p>
+<div class="hero-buttons"><a class="btn" href="#contact">Start a Project →</a><a class="btn btn-outline" href="#portfolio">Explore Our Work</a></div>
+</div>
+<div class="hero-art"><div class="art-glow"></div><div class="orbit-stage">
+<div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div><div class="ring r4"></div><div class="cube-frame"></div><div class="core"></div><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i>
+</div></div>
+</div></section>
+
+<div class="container stats">
+<div class="stat"><strong>360°</strong><span>Digital Solutions</span></div><div class="stat"><strong>5+</strong><span>Creative Demo Projects</span></div><div class="stat"><strong>24/7</strong><span>Online Accessibility</span></div><div class="stat"><strong>100%</strong><span>Project Focus</span></div>
+</div>
+
+<section id="about" class="reveal"><div class="container center">
+<span class="label">WHO WE ARE</span><h2 class="title">Welcome to <span class="gold-text">WEB INDIA</span></h2>
+<p class="subtitle">WEB INDIA is a digital development brand focused on modern website experiences, app concepts, logo design and practical online solutions. We aim to help businesses present their services beautifully on the internet.</p>
+</div></section>
+
+<section class="illusion-section reveal"><div class="container center">
+<span class="label">BEYOND THE ORDINARY</span><h2 class="title">A Playground of <span class="gold-text">3D Illusions.</span></h2>
+<p class="subtitle">A collection of smooth geometric motion studies, orbiting forms and optical patterns. Designed to be visually interesting without rapid flashing.</p>
+<div class="illusion-grid">
+<div class="illusion-card"><div class="visual ball-orbit"><div class="ball-orbit two"></div></div><h3>01 · Multi-Ball Orbit</h3></div>
+<div class="illusion-card"><div class="visual spiral"></div><h3>02 · Infinite Spiral</h3></div>
+<div class="illusion-card"><div class="visual tunnel"></div><h3>03 · Depth Tunnel</h3></div>
+<div class="illusion-card"><div class="visual knot"></div><h3>04 · Interlocking Geometry</h3></div>
+<div class="illusion-card"><div class="visual moire"></div><h3>05 · Moiré Motion</h3></div>
+</div></div></section>
+
+<section id="services" class="panel-section reveal"><div class="container">
+<div class="center"><span class="label">WHAT WE OFFER</span><h2 class="title">Our Premium Services</h2><p class="subtitle">Creative and development services for businesses, creators and growing brands.</p></div>
+<div class="grid">
+<div class="card"><div class="emoji">🌐</div><h3>Website Development</h3><p>Business, portfolio, restaurant, real estate, hotel, school and custom websites.</p><a class="text-link" href="#contact">Make My Website →</a></div>
+<div class="card"><div class="emoji">📱</div><h3>Mobile App Concepts</h3><p>Planning and development support for business, shopping, food, booking and learning apps.</p><a class="text-link" href="#contact">Discuss an App →</a></div>
+<div class="card"><div class="emoji">🛒</div><h3>E-commerce Solutions</h3><p>Product catalogues, shopping carts, checkout flows and store interfaces.</p><a class="text-link" href="#contact">Build My Store →</a></div>
+<div class="card"><div class="emoji">✒️</div><h3>Logo Design</h3><p>Brand marks, business logos and visual identity concepts tailored to your brand.</p><a class="text-link" href="#contact">Design My Logo →</a></div>
+<div class="card"><div class="emoji">📢</div><h3>Google AdSense Assistance</h3><p>Website readiness, policy checklist guidance and AdSense setup assistance. Approval is decided by Google and cannot be guaranteed.</p><a class="text-link" href="#contact">AdSense Assistance →</a></div>
+<div class="card"><div class="emoji">⚙️</div><h3>Maintenance & Bug Fixing</h3><p>Website updates, troubleshooting, responsive improvements and performance checks.</p><a class="text-link" href="#contact">Improve My Website →</a></div>
+<div class="card"><div class="emoji">📈</div><h3>SEO & Digital Growth</h3><p>On-page SEO basics, search visibility improvements and Google Ads guidance.</p><a class="text-link" href="#contact">Grow My Business →</a></div>
+<div class="card"><div class="emoji">💳</div><h3>Payment Integration</h3><p>Payment gateway and checkout integration planning for eligible projects.</p><a class="text-link" href="#contact">Discuss Payments →</a></div>
+<div class="card"><div class="emoji">📊</div><h3>Admin Dashboard</h3><p>Custom dashboard concepts for products, enquiries, bookings and content management.</p><a class="text-link" href="#contact">Get a Dashboard →</a></div>
+</div></div></section>
+
+<section id="portfolio" class="reveal"><div class="container">
+<div class="center experience-intro"><span class="label">OUR WORK · LIVE PROJECT PREVIEWS</span><h2 class="title">Selected <span class="gold-text">Portfolio.</span></h2><p class="subtitle">Explore the actual project pages below. Each preview is a live website window; use “View Site” to open the complete project in a new tab.</p></div>
+<div class="portfolio-grid">
+<article class="project-card"><div class="preview"><iframe src="https://tigersoulofrajput-star.github.io/Invitation-card/" title="Wedding invitation live preview" loading="lazy"></iframe><span class="preview-label">WEDDING · INVITATION</span><div class="preview-shade"></div></div><div class="project-info"><h3>Royal Wedding Invitation</h3><p>Personalized digital wedding invitation with guest details, celebration sections and invitation generator.</p><div class="project-actions"><a class="btn" href="https://tigersoulofrajput-star.github.io/Invitation-card/?guest=Rohit+chauhan&amp;message=Dear+Rohit+chauhan%2C+you+and+your+family+are+warmly+invited+to+celebrate+the+wedding+of+Aarav+Sharma+and+Diya+Das.+Your+presence%2C+love+and+blessings+will+make+this+special+occasion+even+more+memorable.+We+look+forward+to+celebrating+with+you%21" target="_blank" rel="noopener">View Site ↗</a></div></div></article>
+<article class="project-card"><div class="preview"><iframe src="https://tigersoulofrajput-star.github.io/Payment-of-saruf-website/" title="Saruf Photography live preview" loading="lazy"></iframe><span class="preview-label">PHOTOGRAPHY · BOOKING</span><div class="preview-shade"></div></div><div class="project-info"><h3>Saruf Photography</h3><p>Photography presentation with wedding packages, booking flow and photography management interface.</p><div class="project-actions"><a class="btn" href="https://tigersoulofrajput-star.github.io/Payment-of-saruf-website/" target="_blank" rel="noopener">View Site ↗</a></div></div></article>
+<article class="project-card"><div class="preview"><iframe src="https://tigersoulofrajput-star.github.io/Ai-video-creation/" title="PRIME AI live preview" loading="lazy"></iframe><span class="preview-label">AI · CREATIVE STUDIO</span><div class="preview-shade"></div></div><div class="project-info"><h3>PRIME AI Creation Studio</h3><p>AI image and video creation workspace concept with account, dashboard and credits interface.</p><div class="project-actions"><a class="btn" href="https://tigersoulofrajput-star.github.io/Ai-video-creation/" target="_blank" rel="noopener">View Site ↗</a></div></div></article>
+<article class="project-card"><div class="preview"><iframe src="https://tigersoulofrajput-star.github.io/Luxary-website/" title="Maison Verde live preview" loading="lazy"></iframe><span class="preview-label">HOSPITALITY · FINE DINING</span><div class="preview-shade"></div></div><div class="project-info"><h3>MAISON VERDE — Fine Dining</h3><p>Luxury restaurant website concept with menu discovery, dining experience and demo reservation/order flow.</p><div class="project-actions"><a class="btn" href="https://tigersoulofrajput-star.github.io/Luxary-website/" target="_blank" rel="noopener">View Site ↗</a></div></div></article>
+</div>
+<p class="subtitle" style="margin:18px auto 0;text-align:center;font-size:12px">Live previews depend on the browser and the project website allowing embedded display. If a preview is blank, tap “View Site”.</p>
+</div></section>
+
+<section id="categories" class="panel-section reveal"><div class="container">
+<div class="center"><span class="label">SOLUTIONS FOR EVERY INDUSTRY</span><h2 class="title">What Kind of Website Do You Need?</h2><p class="subtitle">Choose a category to start an enquiry. The images below are illustrative stock photography, not screenshots of completed client websites.</p></div>
+<div class="categories">
+<article class="category-card"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=85" alt="Modern luxury real estate home" loading="lazy"><div class="category-content"><h3>Real Estate Website</h3><p>Property listings, galleries and enquiry forms.</p><a href="#contact" data-service="Real Estate Website">Make a Real Estate Website →</a></div></article>
+<article class="category-card"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=85" alt="Elegant restaurant interior" loading="lazy"><div class="category-content"><h3>Restaurant Website</h3><p>Menu, food gallery, bookings and ordering layout.</p><a href="#contact" data-service="Restaurant Website">Make a Restaurant Website →</a></div></article>
+<article class="category-card"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=85" alt="Wedding photography scene" loading="lazy"><div class="category-content"><h3>Photography Website</h3><p>Photo portfolio, packages and booking enquiry.</p><a href="#contact" data-service="Photography Website">Make a Photography Website →</a></div></article>
+<article class="category-card"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=900&q=85" alt="Fashion clothing store" loading="lazy"><div class="category-content"><h3>Fashion & Clothing Store</h3><p>Product displays, collections and shopping design.</p><a href="#contact" data-service="Fashion E-commerce Website">Make a Fashion Website →</a></div></article>
+<article class="category-card"><img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=900&q=85" alt="Wedding event venue decoration" loading="lazy"><div class="category-content"><h3>Wedding Website</h3><p>Invitations, event details and guest information.</p><a href="#contact" data-service="Wedding Website">Make a Wedding Website →</a></div></article>
+<article class="category-card"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=900&q=85" alt="Contemporary house architecture" loading="lazy"><div class="category-content"><h3>Builder & Architecture</h3><p>Project showcase, property details and leads.</p><a href="#contact" data-service="Builder and Architecture Website">Make a Builder Website →</a></div></article>
+<article class="category-card"><img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=900&q=85" alt="Modern business meeting" loading="lazy"><div class="category-content"><h3>Business Website</h3><p>Company profile, services and contact enquiry.</p><a href="#contact" data-service="Business Website">Make a Business Website →</a></div></article>
+<article class="category-card"><img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=900&q=85" alt="Classroom and education" loading="lazy"><div class="category-content"><h3>School & Education</h3><p>Courses, announcements and student information.</p><a href="#contact" data-service="Education Website">Make an Education Website →</a></div></article>
+<article class="category-card"><img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=900&q=85" alt="Travel destination lake and mountains" loading="lazy"><div class="category-content"><h3>Travel & Hotel</h3><p>Destination pages, rooms, packages and bookings.</p><a href="#contact" data-service="Travel and Hotel Website">Make a Travel Website →</a></div></article>
+</div></div></section>
+
+<section class="reveal"><div class="container center"><span class="label">WEBSITE SOLUTIONS</span><h2 class="title">More Website Categories</h2><div class="tags"><span class="tag">Gym & Fitness</span><span class="tag">Medical & Clinic</span><span class="tag">Portfolio</span><span class="tag">College</span><span class="tag">Event Management</span><span class="tag">Booking Platform</span><span class="tag">Blog</span><span class="tag">Landing Page</span><span class="tag">Online Store</span><span class="tag">Educational Platform</span></div></div></section>
+
+<section class="reveal"><div class="container"><div class="center"><span class="label">HOW WE WORK</span><h2 class="title">Our Development Process</h2></div><div class="steps"><div class="step"><b>01</b><h3>Consultation</h3><p>Understand your idea, audience and requirements.</p></div><div class="step"><b>02</b><h3>Design</h3><p>Plan the layout, visual style and user experience.</p></div><div class="step"><b>03</b><h3>Development</h3><p>Build, test and improve the website experience.</p></div><div class="step"><b>04</b><h3>Delivery</h3><p>Publish the project and discuss future support.</p></div></div></div></section>
+
+<section class="panel-section reveal"><div class="container center"><span class="label">OUR TECHNOLOGY STACK</span><h2 class="title">Tools & Technologies</h2><div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Python</span><span class="tag">React</span><span class="tag">PHP</span><span class="tag">Supabase</span><span class="tag">Firebase</span><span class="tag">Flutter</span><span class="tag">MySQL</span><span class="tag">GitHub</span><span class="tag">APIs</span></div></div></section>
+
+<section id="pricing" class="reveal"><div class="container"><div class="center"><span class="label">TRANSPARENT PRICING</span><h2 class="title">Choose Your Package</h2><p class="subtitle">Indicative starting packages. Final pricing depends on scope and requirements.</p></div><div class="grid">
+<div class="card"><h3>Starter</h3><div class="price">₹2,999 <small>/ onwards</small></div><ul><li>✓ Basic Website</li><li>✓ Mobile Responsive</li><li>✓ Basic UI Design</li><li>✓ Contact Section</li><li>✓ Basic SEO Setup</li></ul><a class="btn" href="#contact">Choose Starter</a></div>
+<div class="card popular"><span class="label">POPULAR CHOICE</span><h3>Professional</h3><div class="price">₹5,999 <small>/ onwards</small></div><ul><li>✓ Multi-page Website</li><li>✓ Premium Design</li><li>✓ Contact Forms</li><li>✓ Responsive Layout</li><li>✓ Basic SEO Setup</li><li>✓ Social Integration</li></ul><a class="btn" href="#contact">Choose Professional</a></div>
+<div class="card"><h3>Premium</h3><div class="price">₹9,999 <small>/ onwards</small></div><ul><li>✓ Advanced Website Design</li><li>✓ Interactive Features</li><li>✓ Database Integration (as scoped)</li><li>✓ Admin Panel (as scoped)</li><li>✓ Testing & Launch</li></ul><a class="btn" href="#contact">Choose Premium</a></div>
+</div><p class="subtitle center" style="font-size:12px;margin:20px auto 0">Domain, hosting, paid APIs and third-party service charges may be additional. Features are confirmed in the project scope before work begins.</p></div></section>
+
+<section class="reveal"><div class="container"><div class="cta"><span class="label">HAVE A PROJECT IN MIND?</span><h2>Let's Build Something <span class="gold-text">Amazing.</span></h2><p class="subtitle" style="margin:0 auto 25px">Tell us what you want to create. We'll discuss the right solution for your idea.</p><a class="btn" href="#contact">Start Your Project →</a></div></div></section>
+
+<section id="contact" class="reveal"><div class="container"><div class="center"><span class="label">GET IN TOUCH</span><h2 class="title">Let's Talk About Your Project</h2><p class="subtitle">Send a project enquiry on WhatsApp, or contact using the call option.</p></div>
+<div class="contact-grid"><div class="contact-box">
+<h3 style="color:var(--gold);margin-bottom:15px">Contact WEB INDIA</h3>
+<div class="contact-item"><small>Phone / Call</small><a href="tel:+919415097814">+91 94150 97814</a></div>
+<div class="contact-item"><small>WhatsApp</small><a href="https://wa.me/919415097814" target="_blank" rel="noopener">Chat on WhatsApp</a></div>
+<div class="contact-item"><small>Services</small><span style="color:#d5deea;font-size:13px">Websites · Apps · Logo Design · AdSense Assistance</span></div>
+<div class="contact-buttons"><a class="btn" href="tel:+919415097814">☎ Call Now</a><a class="btn btn-outline" href="https://wa.me/919415097814?text=Hello%20WEB%20INDIA%2C%20I%20want%20to%20discuss%20a%20project." target="_blank" rel="noopener">WhatsApp Us</a></div>
+<p style="font-size:11px;color:var(--muted);margin-top:18px">Phone number is displayed publicly on this website. Publish it only with the account holder's and a parent/guardian's approval.</p>
+</div>
+<form id="projectForm">
+<input id="name" type="text" placeholder="Your Name" required>
+<input id="phone" type="tel" placeholder="Your Contact Number" pattern="[0-9+\-\s]{10,15}" title="Enter a valid contact number" required>
+<input id="email" type="email" placeholder="Your Email (optional)">
+<select id="service" required><option value="">Select Your Service</option><option>Website Development</option><option>Real Estate Website</option><option>Restaurant Website</option><option>Photography Website</option><option>Fashion E-commerce Website</option><option>Wedding Website</option><option>Business Website</option><option>Mobile App Development</option><option>Logo Design</option><option>Google AdSense Assistance</option><option>SEO & Digital Growth</option><option>Website Maintenance</option><option>Other</option></select>
+<select id="budget" required><option value="">Select Your Budget</option><option>Below ₹5,000</option><option>₹5,000 - ₹10,000</option><option>₹10,000 - ₹25,000</option><option>₹25,000 - ₹50,000</option><option>₹50,000+</option></select>
+<textarea id="message" placeholder="Describe Your Project..." required></textarea>
+<button class="btn" type="submit">Send Enquiry on WhatsApp →</button><p id="formStatus" style="font-size:12px;color:var(--gold)"></p>
+</form></div></div></section>
+
+<section class="panel-section reveal"><div class="container"><div class="center"><span class="label">HELP CENTER</span><h2 class="title">Frequently Asked Questions</h2></div>
+<details><summary>How much does a website cost?</summary><p>Indicative packages start from ₹2,999. Final cost depends on design, pages and features.</p></details>
+<details><summary>Do you create logos?</summary><p>Yes, logo design and basic brand identity concepts can be discussed.</p></details>
+<details><summary>Do you help with Google AdSense?</summary><p>Website readiness and setup guidance can be provided. Google independently reviews applications, so approval cannot be promised.</p></details>
+<details><summary>Can you create e-commerce websites?</summary><p>Yes, store layouts can include product catalogues, cart and checkout features according to the agreed scope.</p></details>
+<details><summary>Will the website work on mobile?</summary><p>Layouts are designed to adapt to mobile, tablet and desktop screens.</p></details>
+</div></section>
+
+<footer><div class="container"><div class="footer-grid">
+<div><div class="logo">WEB <span>INDIA.</span></div><p style="margin-top:15px">Building modern websites, logo concepts and digital experiences for growing ideas.</p><p><a href="tel:+919415097814">☎ +91 94150 97814</a></p><p><a href="https://wa.me/919415097814" target="_blank" rel="noopener">WhatsApp WEB INDIA</a></p></div>
+<div><h3>Explore</h3><p><a href="#home">Home</a></p><p><a href="#about">About</a></p><p><a href="#portfolio">Portfolio</a></p><p><a href="#pricing">Pricing</a></p><p><a href="#contact">Contact</a></p></div>
+<div><h3>Services</h3><p><a href="#services">Website Development</a></p><p><a href="#services">Logo Design</a></p><p><a href="#services">AdSense Assistance</a></p><p><a href="#services">App Concepts</a></p></div>
+<div><h3>Portfolio</h3><p><a href="https://tigersoulofrajput-star.github.io/Invitation-card/" target="_blank" rel="noopener">Wedding Invitation</a></p><p><a href="https://tigersoulofrajput-star.github.io/Payment-of-saruf-website/" target="_blank" rel="noopener">Saruf Photography</a></p><p><a href="https://tigersoulofrajput-star.github.io/Ai-video-creation/" target="_blank" rel="noopener">PRIME AI</a></p><p><a href="https://tigersoulofrajput-star.github.io/Luxary-website/" target="_blank" rel="noopener">Maison Verde</a></p></div>
+</div><div class="copyright">© 2026 WEB INDIA. All Rights Reserved.</div></div></footer>
+
+<div class="float-contact"><a class="call" href="tel:+919415097814" aria-label="Call WEB INDIA">☎</a><a href="https://wa.me/919415097814" target="_blank" rel="noopener" aria-label="WhatsApp WEB INDIA">◉</a></div>
+
+<script>
+function toggleMenu(){document.getElementById('navlinks').classList.toggle('show')}
+document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('show')));
+const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');revealObserver.unobserve(entry.target)}}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+document.querySelectorAll('[data-service]').forEach(link=>link.addEventListener('click',()=>{const select=document.getElementById('service');select.value=link.dataset.service; if(![...select.options].some(o=>o.value===link.dataset.service)){const option=document.createElement('option');option.textContent=link.dataset.service;option.value=link.dataset.service;select.add(option);select.value=link.dataset.service}}));
+document.getElementById('projectForm').addEventListener('submit',function(e){
+e.preventDefault();
+const name=document.getElementById('name').value.trim(),phone=document.getElementById('phone').value.trim(),email=document.getElementById('email').value.trim(),service=document.getElementById('service').value,budget=document.getElementById('budget').value,message=document.getElementById('message').value.trim();
+const text='NEW PROJECT ENQUIRY - WEB INDIA\n\nName: '+name+'\nContact: '+phone+'\nEmail: '+(email||'Not provided')+'\nService: '+service+'\nBudget: '+budget+'\nProject Details: '+message;
+const url='https://wa.me/919415097814?text='+encodeURIComponent(text);
+document.getElementById('formStatus').textContent='Opening WhatsApp with your enquiry...';
+window.open(url,'_blank','noopener');
+});
+</script>
+</body>
+</html>
